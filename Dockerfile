@@ -1,4 +1,5 @@
 FROM python:3
-ADD hello.py /
+WORKDIR /app
+COPY . .
 CMD ["python3", "hello.py"]
 
