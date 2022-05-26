@@ -2,7 +2,8 @@ pipeline {
   agent any
   environment {     
     DOCKERHUB_CREDENTIALS= credentials('dockerhub_id')     
-  }           
+  } 
+  stages{          
     stage('Build Docker Image') {         
       steps{
 	sh "docker build -t jdngc/app:$BUILD_NUMBER ."
@@ -15,6 +16,6 @@ pipeline {
     	echo 'Login Completed'
         sh "docker push jdngc/app/:$BUILD_NUMBER"
       }           
-    }               
-    
-  } //pipeline
+    }                
+  }
+} //pipeline
